@@ -3,7 +3,7 @@ syntax on
 filetype plugin on
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 autocmd BufRead,BufNewFile *.cljs setlocal filetype=clojure
-autocmd Filetype *.js setlocal tabstop=4
+autocmd Filetype *.js setlocal tabstop=2
 
 set tabstop=2
 set shiftwidth=2
@@ -18,23 +18,21 @@ highlight Comment ctermfg=LightGrey
 colorscheme solarized
 
 let g:clj_fmt_autosave = 0
+let g:formatterpath = ['/usr/local/bin/eslint']
 let g:jsx_ext_required = 0
-let g:paredit_mode = 1
-let g:paredit_leader = ','
 let g:magit_enabled= 1
 let g:mustache_abbreviations = 1
-let g:paredit_electric_return= 0
-let g:user_emmet_install_global = 0
-let g:rustfmt_autosave = 1
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeGlyphReadOnly = "RO"
-let g:formatterpath = ['/usr/local/bin/eslint']
+let g:paredit_electric_return= 0
+let g:paredit_mode = 1
+let g:paredit_leader = ','
+let g:rustfmt_autosave = 1
 
 set number
 
 nnoremap <F5> :NERDTreeToggle<CR>
 
 imap jk <Esc>
-
