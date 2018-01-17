@@ -1,38 +1,64 @@
 execute pathogen#infect()
-syntax on
+syntax enable
 filetype plugin on
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 autocmd BufRead,BufNewFile *.cljs setlocal filetype=clojure
 autocmd Filetype *.js setlocal tabstop=2
 
+" Change leader from \ to ,
+let mapleader=","
+
+" Automatically re-source .vimrc when it's saved
+augroup reload_vimrc " {
+  autocmd!
+  autocmd BufWritePost vimrc source $MYVIMRC
+augroup END " }
+
+" No swap files
+set noswapfile
+set nobackup
+set nowb
+
+" Tabs and indentation
+filetype indent on
+set wrap
+set shiftwidth=2
 set tabstop=2
 set shiftwidth=2
-set softtabstop=2
 set expandtab
+set autoindent
+set smartindent
 set showcmd
 
-syntax enable
+" Search globally by defaul
+set gdefault
+
 let g:solarized_termcolors=256
 highlight Normal ctermfg=LightGrey ctermbg=black
 highlight Comment ctermfg=LightGrey 
-colorscheme solarized
+colorscheme solarized8
 
 let g:clj_fmt_autosave = 0
 let g:formatterpath = ['/usr/local/bin/eslint']
 let g:jsx_ext_required = 0
-let g:magit_enabled= 1
+let g:magit_enabled = 1
 let g:mustache_abbreviations = 1
-let g:NERDTreeDirArrows = 1
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-let g:NERDTreeGlyphReadOnly = "RO"
 let g:paredit_electric_return= 0
 let g:paredit_mode = 1
 let g:paredit_leader = ','
 let g:rustfmt_autosave = 1
 
-set number
+" NERDTree
+map <leader>nt :NERDTreeToggle<CR>
+"nnoremap <F5> :NERDTreeToggle<CR>
+" Ignore system files
+let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+let g:NERDTreeGlyphReadOnly = "RO"
+let g:NERDTreeShowHidden = 1
 
-nnoremap <F5> :NERDTreeToggle<CR>
+set number
 
 imap jk <Esc>
