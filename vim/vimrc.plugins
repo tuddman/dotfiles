@@ -23,6 +23,8 @@ Plug 'vim-airline/vim-airline'
 
 Plug 'ctrlpvim/ctrlp.vim'
 
+Plug 'tpope/vim-fireplace'
+
 " " Autocomplete
 " Plug 'ervandew/supertab'
 " if has('nvim')
