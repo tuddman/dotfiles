@@ -96,7 +96,9 @@ set modelines=0
 " Color Scheme
 filetype on
 syntax on
-colorscheme solarized8
+set background=dark
+colorscheme solarized8_flat
+
 
 " ctrl-p fuzzy file search
 set runtimepath^=~/.vim/bundle/ctrlp.vim

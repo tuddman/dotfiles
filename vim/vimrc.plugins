@@ -21,10 +21,8 @@ Plug 'lifepillar/vim-solarized8'
 " Plug 'kchmck/vim-coffee-script'
 Plug 'vim-airline/vim-airline'
 
-Plug 'ctrlpvim/ctrlp.vim'
-
-Plug 'tpope/vim-fireplace'
-Plug 'venantius/vim-cljfmt'
+" Git 
+Plug 'tpope/vim-fugitive'
 
 " " Autocomplete
 " Plug 'ervandew/supertab'
@@ -61,6 +59,8 @@ Plug 'sjl/gundo.vim'
 " Jump around file
 Plug 'easymotion/vim-easymotion'
 
+Plug 'ctrlpvim/ctrlp.vim'
+
 " Fuzzy file finding
 " NOTE requires additional setup
 " https://github.com/wincent/command-t/blob/master/doc/command-t.txt
@@ -68,16 +68,31 @@ Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+" 'Interactive scratchpad for hackers'
+" Plug 'metakirby5/codi.vim'
+
 " Language Specific
 
-" HTML
-" -----
+" Clojure
+" --------
+Plug 'tpope/vim-salve'
+Plug 'tpope/vim-fireplace'
+Plug 'venantius/vim-cljfmt'
+Plug 'guns/vim-clojure-static'
+Plug 'guns/vim-clojure-highlight'
+" Plug 'vim-scripts/paredit.vim'
 
 " Javascript
 " -----------
 Plug 'jelera/vim-javascript-syntax'
 Plug 'gavocanov/vim-js-indent'
 Plug 'mxw/vim-jsx'
+Plug 'isRuslan/vim-es6'
+Plug 'elzr/vim-json'
+
+" Rust
+" -----
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 " End plugins
