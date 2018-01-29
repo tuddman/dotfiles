@@ -58,6 +58,7 @@ set smartcase
 set incsearch
 " highlight search matches
 set hlsearch
+" nnoremap <esc> :noh<return><esc>
 
 " Display relative line numbers
 set relativenumber
@@ -118,7 +119,7 @@ nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 nnoremap <leader>vs <C-w>v<C-w>l
 
 " ,nt opens NerdTree
-map <leader>nt ;NERDTreeToggle<CR>
+map <leader>nt :NERDTreeToggle<CR>
 let NERDTreeShowLineNumbers=1
 
 " ,gu opens Graphical Undo
