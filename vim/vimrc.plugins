@@ -89,6 +89,9 @@ Plug 'gavocanov/vim-js-indent'
 Plug 'mxw/vim-jsx'
 Plug 'isRuslan/vim-es6'
 Plug 'elzr/vim-json'
+Plug 'heavenshell/vim-jsdoc'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
 
 " Rust
 " -----

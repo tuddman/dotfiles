@@ -89,6 +89,8 @@ au FocusLost * :wa
 
 " Highlight current column
 set cursorline cursorcolumn
+" set cursorline ctermbg=LightBlue
+hi Cursor guifg=#121212 guibg=#afd700
 
 " Prevents some security issues
 set modelines=0
@@ -105,6 +107,11 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 " Switch ; and :
 " noremap ; :
 " noremap : ;
+
+" JsDoc Options
+let g:jsdoc_allow_input_prompt=1
+let g:jsdoc_input_description=1
+
 
 " START Leader commands
 " ----------------
