@@ -61,7 +61,7 @@ set hlsearch
 " nnoremap <esc> :noh<return><esc>
 
 " Display relative line numbers
-set relativenumber
+" set relativenumber
 
 :augroup numbertoggle
 :  autocmd!
@@ -201,5 +201,9 @@ if has('nvim')
   let g:tern_show_signature_in_pum = 0
   set completeopt-=preview
 endif
+
+" vim-clojure-static
+" -------------
+let g:clojure_fuzzy_indent = 3
 
 imap jk <Esc>

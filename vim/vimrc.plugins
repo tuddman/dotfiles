@@ -23,6 +23,7 @@ Plug 'vim-airline/vim-airline'
 
 " Git 
 Plug 'tpope/vim-fugitive'
+Plug 'jreybert/vimagit'
 
 " " Autocomplete
 " Plug 'ervandew/supertab'
