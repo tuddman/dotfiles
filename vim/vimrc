@@ -63,11 +63,11 @@ set hlsearch
 " Display relative line numbers
 " set relativenumber
 
-:augroup numbertoggle
-:  autocmd!
-:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-:augroup END
+" :augroup numbertoggle
+" :  autocmd!
+" :  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+" :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+" :augroup END
 
 " display the absolute line number at the line you're on
 set number
@@ -111,6 +111,9 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 " JsDoc Options
 let g:jsdoc_allow_input_prompt=1
 let g:jsdoc_input_description=1
+
+
+
 
 
 " START Leader commands
@@ -202,8 +205,28 @@ if has('nvim')
   set completeopt-=preview
 endif
 
+" Elixir
+" ------------
+autocmd BufWritePost *.exs,*.ex silent :!mix format %
+
 " vim-clojure-static
 " -------------
 let g:clojure_fuzzy_indent = 3
+
+" Emmet
+let g:user_emmet_mode='n'    "only enable normal mode functions
+" let g:user_emmet_leader_key=','
+
+" rust
+" -------------
+set hidden
+let g:racer_cmd = "/home/tuddman/.cargo/bin/racer"
+let g:rustfmt_autosave = 1
+
+au FileType rust nmap gd <Plug>(rust-def)
+au FileType rust nmap gs <Plug>(rust-def-split)
+au FileType rust nmap gx <Plug>(rust-def-vertical)
+au FileType rust nmap <leader>gd <Plug>(rust-doc)
+
 
 imap jk <Esc>

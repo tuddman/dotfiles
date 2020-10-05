@@ -24,6 +24,7 @@ Plug 'vim-airline/vim-airline'
 " Git 
 Plug 'tpope/vim-fugitive'
 Plug 'jreybert/vimagit'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " " Autocomplete
 " Plug 'ervandew/supertab'
@@ -83,6 +84,14 @@ Plug 'guns/vim-clojure-static'
 Plug 'guns/vim-clojure-highlight'
 " Plug 'vim-scripts/paredit.vim'
 
+" Elixir
+" ------
+Plug 'elixir-editors/vim-elixir'
+Plug 'slashmili/alchemist.vim'
+
+" HTML / CSS
+" -----------
+Plug 'mattn/emmet-vim'
 
 " Javascript
 " -----------
