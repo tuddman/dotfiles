@@ -20,6 +20,7 @@ Plug 'lifepillar/vim-solarized8'
 " Plug 'itchyny/lightline.vim'
 " Plug 'kchmck/vim-coffee-script'
 Plug 'vim-airline/vim-airline'
+Plug 'dense-analysis/ale'
 
 " Git 
 Plug 'tpope/vim-fugitive'

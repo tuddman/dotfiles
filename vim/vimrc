@@ -108,12 +108,11 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 " noremap ; :
 " noremap : ;
 
+set shortmess=a
+
 " JsDoc Options
 let g:jsdoc_allow_input_prompt=1
 let g:jsdoc_input_description=1
-
-
-
 
 
 " START Leader commands
@@ -139,7 +138,8 @@ nnoremap <leader>gu :GundoToggle<CR>
 
 " ----------------
 " END Leader commands
-"
+
+
 " open on the right so as not to compete with the nerdtree
 let g:gundo_right = 1 
 
@@ -220,13 +220,37 @@ let g:user_emmet_mode='n'    "only enable normal mode functions
 " rust
 " -------------
 set hidden
-let g:racer_cmd = "/home/tuddman/.cargo/bin/racer"
+let g:racer_cmd = "/Users/studd/.cargo/bin/racer"
 let g:rustfmt_autosave = 1
 
-au FileType rust nmap gd <Plug>(rust-def)
-au FileType rust nmap gs <Plug>(rust-def-split)
-au FileType rust nmap gx <Plug>(rust-def-vertical)
-au FileType rust nmap <leader>gd <Plug>(rust-doc)
+" for other options:   :help ale-integration-rust
+let g:ale_rust_cargo_check_tests = 1
+
+" let g:ycm_language_server =
+" \ [
+" \   {
+" \     'name': 'rust',
+" \     'cmdline': ['rust-analyzer'],
+" \     'filetypes': ['rust'],
+" \     'project_root_files': ['Cargo.toml']
+" \   }
+" \ ]
+
+
+augroup Racer
+    autocmd!
+    autocmd FileType rust nmap <buffer> gd         <Plug>(rust-def)
+    autocmd FileType rust nmap <buffer> gs         <Plug>(rust-def-split)
+    autocmd FileType rust nmap <buffer> gx         <Plug>(rust-def-vertical)
+    autocmd FileType rust nmap <buffer> gt         <Plug>(rust-def-tab)
+    autocmd FileType rust nmap <buffer> <leader>gd <Plug>(rust-doc)
+    autocmd FileType rust nmap <buffer> <leader>gD <Plug>(rust-doc-tab)
+augroup END
+
+" au FileType rust nmap gd <Plug>(rust-def)
+" au FileType rust nmap gs <Plug>(rust-def-split)
+" au FileType rust nmap gx <Plug>(rust-def-vertical)
+" au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
 
 imap jk <Esc>
