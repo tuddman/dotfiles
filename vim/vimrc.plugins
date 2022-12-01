@@ -13,8 +13,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 
 " Color schemes
-" Plug 'chriskempson/base16-vim'
-Plug 'lifepillar/vim-solarized8'
+Plug 'shaunsingh/solarized.nvim'
 
 " Status line
 " Plug 'itchyny/lightline.vim'
@@ -22,19 +21,14 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'vim-airline/vim-airline'
 Plug 'dense-analysis/ale'
 
-" Git 
+" Git
 Plug 'tpope/vim-fugitive'
 Plug 'jreybert/vimagit'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " " Autocomplete
-" Plug 'ervandew/supertab'
-" if has('nvim')
-"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'  }
-"   Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }"   Plug 'steelsojka/deoplete-flow'
-" else
-"   Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
-" endif
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'amiralies/coc-elixir', {'do': 'yarn install && yarn prepack'}
 
 " Extend vim commands
 Plug 'tpope/vim-surround'
@@ -71,6 +65,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+" see function usage
+Plug 'joereynolds/gtags-scope'
+
 " 'Interactive scratchpad for hackers'
 " Plug 'metakirby5/codi.vim'
 
@@ -89,12 +86,17 @@ Plug 'guns/vim-clojure-highlight'
 " ------
 Plug 'elixir-editors/vim-elixir'
 Plug 'slashmili/alchemist.vim'
+Plug 'mhinz/vim-mix-format'
+
+" Go
+" -----------
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " HTML / CSS
 " -----------
 Plug 'mattn/emmet-vim'
 
-" Javascript
+" Javascript / JSON
 " -----------
 Plug 'jelera/vim-javascript-syntax'
 Plug 'gavocanov/vim-js-indent'
@@ -102,19 +104,39 @@ Plug 'mxw/vim-jsx'
 Plug 'isRuslan/vim-es6'
 Plug 'elzr/vim-json'
 Plug 'heavenshell/vim-jsdoc'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install && yarn add prettier-plugin-solidity',
+  \ 'for': [
+    \ 'javascript',
+    \ 'typescript',
+    \ 'css',
+    \ 'less',
+    \ 'scss',
+    \ 'json',
+    \ 'graphql',
+    \ 'markdown',
+    \ 'vue',
+    \ 'lua',
+    \ 'php',
+    \ 'python',
+    \ 'ruby',
+    \ 'html',
+    \ 'swift',
+    \ 'solidity'] }
+Plug 'neoclide/coc-prettier'
 
 " Markdown
 " -----
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-
 
 " Rust
 " -----
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 
+" Solidity
+" -----
+Plug 'tomlion/vim-solidity'
 
 " Terraform
 " -----

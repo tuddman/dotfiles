@@ -8,7 +8,7 @@ source ~/.vim/vimrc.plugins
 set belloff=all
 
 " Maximum history
-set history=1000 
+set history=1000
 
 " Scrolling
 set scrolloff=8
@@ -48,8 +48,8 @@ set smartindent
 set smarttab
 
 " Auto indent pasted text
-nnoremap p p=`]<C-o>
-nnoremap P P=`]<C-o>
+" nnoremap p p=`]<C-o>
+" nnoremap P P=`]<C-o>
 
 " Ignore case unless you uppercase
 set ignorecase
@@ -58,7 +58,7 @@ set smartcase
 set incsearch
 " highlight search matches
 set hlsearch
-" nnoremap <esc> :noh<return><esc>
+nnoremap <esc> :noh<return><esc>
 
 " Display relative line numbers
 " set relativenumber
@@ -71,7 +71,7 @@ set hlsearch
 
 " display the absolute line number at the line you're on
 set number
-" Keep the line number gutter narrow so three digits is cozy. 
+" Keep the line number gutter narrow so three digits is cozy.
 set numberwidth=3
 
 " keep cursor in the same column if possible
@@ -84,11 +84,54 @@ vnoremap / /\v
 " Search globally by default
 set gdefault
 
+"search both cscopes db and the tags file
+set cscopetag
+
+"=============gnu global keymap=============
+
+"Input ",gd". It searches the string at the current cursor position from tag files.(it's like searching definition)
+nmap <Leader>gd :Gtags <C-R>=expand("<cword>")<CR><CR>
+"Input ",gr". It searches the referenced places of the string where the cursor is located.
+nmap <Leader>gr :Gtags -r <C-R>=expand("<cword>")<CR><CR>
+"Input ",gs". It searches the symbols which are not defined in GTAGS.
+nmap <Leader>gs :Gtags -s <C-R>=expand("<cword>")<CR><CR>
+"Input ",gg". It searches "pattern" from all files.(*.h, *.c, *.txt and etc)
+nmap <Leader>gg :Gtags -go <C-R>=expand("<cword>")<CR><CR>
+"Input ",gp". It searches files.
+nmap <Leader>gp :Gtags -Po <C-R>=expand("<cword>")<CR><CR>
+"Input ",ge". It searches "--regexp" pattern.
+nmap <Leader>ge :Gtags -ge <C-R>=expand("<cword>")<CR><CR>
+
+"These keymaps are same with above, except "ignore case sensitivity".
+nmap <Leader>igd :Gtags -i <C-R>=expand("<cword>")<CR><CR>
+nmap <Leader>igr :Gtags -ir <C-R>=expand("<cword>")<CR><CR>
+nmap <Leader>igs :Gtags -is <C-R>=expand("<cword>")<CR><CR>
+nmap <Leader>igg :Gtags -igo <C-R>=expand("<cword>")<CR><CR>
+nmap <Leader>igp :Gtags -iPo <C-R>=expand("<cword>")<CR><CR>
+nmap <Leader>ige :Gtags -ige <C-R>=expand("<cword>")<CR><CR>
+
+"These keymaps are same with above, except that the above command searches the string at the current cursor position. Meanwhile, the commands below need to enters the string to search for
+nmap <Leader>ld :Gtags
+nmap <Leader>lr :Gtags -r
+nmap <Leader>ls :Gtags -s
+nmap <Leader>lg :Gtags -go
+nmap <Leader>lp :Gtags -Po
+nmap <Leader>le :Gtags -ge
+
+nmap <Leader>ild :Gtags -i
+nmap <Leader>ilr :Gtags -ir
+nmap <Leader>ils :Gtags -is
+nmap <Leader>ilg :Gtags -igo
+nmap <Leader>ilp :Gtags -iPo
+nmap <Leader>ile :Gtags -ige
+
+
 " Autosave on Vim blur
 au FocusLost * :wa
 
 " Highlight current column
-set cursorline cursorcolumn
+" set cursorline cursorcolumn
+
 " set cursorline ctermbg=LightBlue
 hi Cursor guifg=#121212 guibg=#afd700
 
@@ -99,8 +142,7 @@ set modelines=0
 filetype on
 syntax on
 set background=dark
-colorscheme solarized8_flat
-
+colorscheme solarized
 
 " ctrl-p fuzzy file search
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -113,7 +155,6 @@ set shortmess=a
 " JsDoc Options
 let g:jsdoc_allow_input_prompt=1
 let g:jsdoc_input_description=1
-
 
 " START Leader commands
 " ----------------
@@ -139,9 +180,11 @@ nnoremap <leader>gu :GundoToggle<CR>
 " ----------------
 " END Leader commands
 
+" automatically strip trailing whitespace on :w
+autocmd BufWritePre * :%s/\s\+$//e
 
 " open on the right so as not to compete with the nerdtree
-let g:gundo_right = 1 
+let g:gundo_right = 1
 
 " a little wider for wider screens
 let g:gundo_width = 60
@@ -165,7 +208,6 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let g:NERDTreeWinSize = 30
 
-
 " CommandT Settings
 " ------------------
 " Ignore directories
@@ -185,7 +227,7 @@ inoremap <C-T> <ESC>:FZF<CR>i
 au BufNewFile,BufRead *.scss set filetype=css.sass
 
 " Javascript
-" Libraries for highlighting 
+" Libraries for highlighting
 " let g:used_javascript_libs = 'jquery,underscore,backbone,angularjs,angularui,angularuirouter,react,flux,requirejs'
 
 " JSX
@@ -205,52 +247,38 @@ if has('nvim')
   set completeopt-=preview
 endif
 
+
 " Elixir
 " ------------
 autocmd BufWritePost *.exs,*.ex silent :!mix format %
+let g:mix_format_on_save = 1
 
 " vim-clojure-static
 " -------------
 let g:clojure_fuzzy_indent = 3
 
 " Emmet
-let g:user_emmet_mode='n'    "only enable normal mode functions
-" let g:user_emmet_leader_key=','
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
 
 " rust
 " -------------
 set hidden
-let g:racer_cmd = "/Users/studd/.cargo/bin/racer"
 let g:rustfmt_autosave = 1
 
 " for other options:   :help ale-integration-rust
 let g:ale_rust_cargo_check_tests = 1
+let g:ale_rust_cargo_use_check = 0
 
-" let g:ycm_language_server =
-" \ [
-" \   {
-" \     'name': 'rust',
-" \     'cmdline': ['rust-analyzer'],
-" \     'filetypes': ['rust'],
-" \     'project_root_files': ['Cargo.toml']
-" \   }
-" \ ]
-
-
-augroup Racer
-    autocmd!
-    autocmd FileType rust nmap <buffer> gd         <Plug>(rust-def)
-    autocmd FileType rust nmap <buffer> gs         <Plug>(rust-def-split)
-    autocmd FileType rust nmap <buffer> gx         <Plug>(rust-def-vertical)
-    autocmd FileType rust nmap <buffer> gt         <Plug>(rust-def-tab)
-    autocmd FileType rust nmap <buffer> <leader>gd <Plug>(rust-doc)
-    autocmd FileType rust nmap <buffer> <leader>gD <Plug>(rust-doc-tab)
-augroup END
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+let g:prettier#exec_cmd_path = '~/.vim/plugged/vim-prettier/node_modules/.bin/prettier'
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.sol Prettier
+autocmd BufWritePre *.js Prettier
 
 " au FileType rust nmap gd <Plug>(rust-def)
 " au FileType rust nmap gs <Plug>(rust-def-split)
 " au FileType rust nmap gx <Plug>(rust-def-vertical)
 " au FileType rust nmap <leader>gd <Plug>(rust-doc)
-
 
 imap jk <Esc>
