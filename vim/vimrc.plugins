@@ -26,9 +26,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'jreybert/vimagit'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
-" " Autocomplete
+" CoC
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'amiralies/coc-elixir', {'do': 'yarn install && yarn prepack'}
+Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
+Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
+
+" Document Generator
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 
 " Extend vim commands
 Plug 'tpope/vim-surround'
