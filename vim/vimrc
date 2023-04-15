@@ -177,6 +177,16 @@ let NERDTreeShowLineNumbers=1
 " ,gu opens Graphical Undo
 nnoremap <leader>gu :GundoToggle<CR>
 
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" use ripgrep
+set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+set grepformat=%f:%l:%c:%m
+
 " ----------------
 " END Leader commands
 
@@ -293,13 +303,6 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-
-" au FileType rust nmap gd <Plug>(rust-def)
-" au FileType rust nmap gs <Plug>(rust-def-split)
-" au FileType rust nmap gx <Plug>(rust-def-vertical)
-" au FileType rust nmap <leader>gd <Plug>(rust-doc)
-
-
 
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile

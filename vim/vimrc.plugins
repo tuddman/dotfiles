@@ -26,9 +26,16 @@ Plug 'tpope/vim-fugitive'
 Plug 'jreybert/vimagit'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
+" Telescope
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+
 " " Autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'amiralies/coc-elixir', {'do': 'yarn install && yarn prepack'}
+
+" Documentation Generator
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 
 " Extend vim commands
 Plug 'tpope/vim-surround'
@@ -45,7 +52,7 @@ Plug 'kana/vim-textobj-line'            | Plug 'kana/vim-textobj-user'
 Plug 'wellle/targets.vim'
 
 " File browser
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 
 " Multiple cursors
 Plug 'terryma/vim-multiple-cursors/'
@@ -64,9 +71,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Plug 'wincent/command-t/'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-
-" see function usage
-Plug 'joereynolds/gtags-scope'
 
 " 'Interactive scratchpad for hackers'
 " Plug 'metakirby5/codi.vim'
